@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Tu elección
+{% endblock %}
+
+{% block content %}
+
+<p>
+    Se te ha asignado el <b>rol B</b>. De una dotación de {{Constants.endowment}}, <br>
+    el participante A te ha enviado {{group.sent_amount}}.
+</p>
+<p>
+    Este monto se ha multiplicado por {{ Constants.multiplier }} convirtiendose en {{tripled_amount}}.
+</p>
+<p>
+    ¿Cuánto deseas enviar de regreso al participante A? <br>
+    (puedes regresar de 0 a {{tripled_amount}})
+</p>
+
+    {% formfield group.sent_back_amount with label="Por favor, ingrese el monto aquí:" %}
+
+<p>
+    {% next_button %}
+</p>
+
+    {% include Constants.instructions_button %}
+
+{% endblock %}

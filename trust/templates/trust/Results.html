@@ -1,0 +1,84 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block content %}
+
+<p>
+    En esta ronda, fuiste el <b>participante {{player.role}}</b>. La siguiente tabla <br>
+    resume tus resultados:
+</p>    
+
+<style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+    .tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+
+    {% if player.role == 'A' %}
+        <table class="tg" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+        <thead>
+            <tr>
+            <th class="tg-1wig">Dotación inicial</th>
+            <th class="tg-0lax">{{ Constants.endowment }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td class="tg-1wig">Monto enviado al<br>participante B</td>
+            <td class="tg-0lax">{{ group.sent_amount }}</td>
+            </tr>
+            <tr>
+            <td class="tg-1wig">Monto enviado triplicado</td>
+            <td class="tg-0lax">{{ tripled_amount }}</td>
+            </tr>
+            <tr>
+            <td class="tg-1wig">Monto retornado por el <br>participante de rol B</td>
+            <td class="tg-0lax">{{ group.sent_back_amount }}</td>
+            </tr>
+            <tr>
+            <td class="tg-1wig">Tu pago de esta ronda<br>({{ Constants.endowment }} - {{ group.sent_amount }}<br> + {{ group.sent_back_amount }})<br></td>
+            <td class="tg-0lax"><b>{{ player.payoff }}</b></td>
+            </tr>
+        </tbody>
+        </table>
+    {% else %}
+        <table class="tg" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+        <thead>
+            <tr>
+            <th class="tg-1wig">Dotación inicial</th>
+            <th class="tg-0lax">0 puntos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td class="tg-1wig">Monto enviado por el<br>participante A</td>
+            <td class="tg-0lax">{{ group.sent_amount }}</td>
+            </tr>
+            <tr>
+            <td class="tg-1wig">Monto enviado triplicado</td>
+            <td class="tg-0lax">{{ tripled_amount }}</td>
+            </tr>
+            <tr>
+            <td class="tg-1wig">Monto retornado al <br>participante A</td>
+            <td class="tg-0lax">{{ group.sent_back_amount }}</td>
+            </tr>
+            <tr>
+            <td class="tg-1wig">Tu pago de esta ronda<br>({{ tripled_amount }} - {{ group.sent_back_amount }})<br></td>
+            <td class="tg-0lax"><b>{{ player.payoff }}</b></td>
+            </tr>
+        </tbody>
+        </table>
+    {% endif %}
+
+    {% next_button %}
+    {% include Constants.instructions_button %}
+
+{% endblock %}
