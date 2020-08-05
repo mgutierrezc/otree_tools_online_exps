@@ -19,7 +19,7 @@ class Send(Page):
     form_fields = ['sent_amount']
 
     def is_displayed(self):
-        return self.player.id_in_group == 1
+        return self.player.id_in_group == 1 and self.participant.vars['is_mobile'] is False
 
     def vars_for_template(self):
         return dict(participant_id = self.participant.label)
@@ -37,7 +37,7 @@ class SendBack(Page):
     form_fields = ['sent_back_amount']
 
     def is_displayed(self):
-        return self.player.id_in_group == 2
+        return self.player.id_in_group == 2 and self.participant.vars['is_mobile'] is False
 
     def vars_for_template(self):
         tripled_amount = self.group.sent_amount * Constants.multiplier
@@ -59,7 +59,16 @@ class Results(Page):
     def vars_for_template(self):
         return dict(tripled_amount=self.group.sent_amount * Constants.multiplier,
                     participant_id = self.participant.label)
+    
+    def is_displayed(self):
+        return self.participant.vars['is_mobile'] is False
 
+class LastPage(Page):
+    def vars_for_template(self):
+        return {'participant_id': self.participant.label}
+    
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds and self.participant.vars['is_mobile'] is False
 
 page_sequence = [
 #    Introduction,
@@ -69,4 +78,5 @@ page_sequence = [
     SendBack,
     ResultsWaitPage,
     Results,
+    LastPage
 ]
