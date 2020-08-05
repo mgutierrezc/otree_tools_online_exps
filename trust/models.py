@@ -26,10 +26,12 @@ class Constants(BaseConstants):
 
     instructions_template = 'trust/instructions.html'
     instructions_button = "trust/Instructions_Button.html"
+    contact_template = "initial_quiz/Contactenos.html"
 
     # Initial amount allocated to each player
     endowment = c(100)
     multiplier = 3
+    n_rounds = num_rounds # for using it on the instructions in initial quiz
 
 
 class Subsession(BaseSubsession):

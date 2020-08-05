@@ -6,8 +6,14 @@ SESSION_CONFIGS = [
         name='trust',
         display_name="Trust Game",
         num_demo_participants=2,
-        app_sequence=['trust'],
+        app_sequence=['trust']
     ),
+    dict(
+        name='initial_quiz',
+        display_name="Initial Quiz (No Mobile)",
+        num_demo_participants=2,
+        app_sequence=['no_mobile', 'initial_quiz']
+    )
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
