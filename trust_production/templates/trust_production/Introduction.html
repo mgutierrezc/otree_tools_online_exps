@@ -5,6 +5,7 @@
     Introducción
 {% endblock %}
 
+<font color="burlywood"><h4 align="right">Tu ID: {{ participant_id }}</h4></font>
 
 {% block content %}
 
@@ -15,5 +16,5 @@
     </p>
 
     {% next_button %}
-
+    {% include Constants.contact_template %}
 {% endblock %}

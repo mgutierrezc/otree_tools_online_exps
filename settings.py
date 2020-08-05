@@ -9,6 +9,12 @@ SESSION_CONFIGS = [
         app_sequence=['trust']
     ),
     dict(
+        name='trust_production',
+        display_name="Trust Game (Production)",
+        num_demo_participants=2,
+        app_sequence=['no_mobile', 'initial_quiz', 'trust_production']
+    ),
+    dict(
         name='initial_quiz',
         display_name="Initial Quiz (No Mobile)",
         num_demo_participants=2,

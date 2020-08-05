@@ -5,6 +5,7 @@
     Tu elección
 {% endblock %}
 
+<font color="burlywood"><h4 align="right">Tu ID: {{ participant_id }}</h4></font>
 
 {% block content %}
 
@@ -23,5 +24,7 @@
     </p>
 
     {% include Constants.instructions_button %}
-
+    <p>
+        {% include Constants.contact_template %}
+    </p>
 {% endblock %}

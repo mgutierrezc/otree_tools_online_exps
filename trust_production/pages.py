@@ -4,13 +4,10 @@ from .models import Constants
 
 
 class Introduction(Page):
-    def is_displayed(self):
-        return self.round_number == 1
-
+    pass
 
 class GroupingPage(WaitPage):
     pass
-
 
 class Send(Page):
     """This page is only for P1
@@ -23,6 +20,9 @@ class Send(Page):
 
     def is_displayed(self):
         return self.player.id_in_group == 1
+
+    def vars_for_template(self):
+        return dict(participant_id = self.participant.label)
 
 
 class SendBackWaitPage(WaitPage):
@@ -45,6 +45,7 @@ class SendBack(Page):
         return dict(
             tripled_amount=tripled_amount,
             prompt='Please an amount from 0 to {}'.format(tripled_amount),
+            participant_id = self.participant.label
         )
 
 
@@ -56,11 +57,12 @@ class Results(Page):
     """This page displays the earnings of each player"""
 
     def vars_for_template(self):
-        return dict(tripled_amount=self.group.sent_amount * Constants.multiplier)
+        return dict(tripled_amount=self.group.sent_amount * Constants.multiplier,
+                    participant_id = self.participant.label)
 
 
 page_sequence = [
-    Introduction,
+#    Introduction,
 #    GroupingPage,
     Send,
     SendBackWaitPage,

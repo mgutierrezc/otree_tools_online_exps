@@ -26,9 +26,9 @@ class Constants(BaseConstants):
     """
 
     players_per_group = None
-    instructions_template = "trust/instructions.html"
+    instructions_template = "trust_production/instructions.html"
     contact_template = "initial_quiz/Contactenos.html"
-    instructions_button = "trust/Instructions_Button.html"
+    instructions_button = "trust_production/Instructions_Button.html"
     num_rounds = 1
     timer = 20
     payment_per_answer = c(5)
@@ -38,7 +38,7 @@ class Constants(BaseConstants):
     # Initial amount allocated to each player
     endowment = c(100)
     multiplier = 3
-    n_rounds = num_rounds # for using it on the instructions in initial quiz
+    n_rounds = 2 # for using it on the instructions in initial quiz
 
     '''Quiz Answers'''
 
