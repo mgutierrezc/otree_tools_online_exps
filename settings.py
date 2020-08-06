@@ -14,12 +14,6 @@ SESSION_CONFIGS = [
         num_demo_participants=2,
         app_sequence=['no_mobile', 'initial_quiz', 'trust_production']
     ),
-    dict(
-        name='initial_quiz',
-        display_name="Initial Quiz (No Mobile)",
-        num_demo_participants=2,
-        app_sequence=['no_mobile', 'initial_quiz']
-    )
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -44,6 +38,11 @@ ROOMS = [
         name='econ101',
         display_name='Econ 101 class',
         participant_label_file='_rooms/econ101.txt',
+    ),
+    dict(
+        name='e2labup_room',
+        display_name='Room para experimentos E2LabUP',
+        participant_label_file='_rooms/e2labup-room.txt',
     ),
     dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
 ]
