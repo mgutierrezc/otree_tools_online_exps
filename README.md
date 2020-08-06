@@ -6,10 +6,11 @@ del código de un experimento online.
 
 Este incluye:
 
-1. El código en español para un Trust Game
-1. Bloqueador de dispositivos móviles
-1. Quiz Dinámico de Entendimiento
-1. Página Final con Información de Pagos
+1. [El código en español para un Trust Game Simple](https://github.com/mgutierrezc/otree_tools_online_exps/tree/master/trust)
+1. [El código en español para un Trust Game en modo de Producción (listo para correr online)](https://github.com/mgutierrezc/otree_tools_online_exps/tree/master/trust_production)
+1. [Bloqueador de dispositivos móviles](https://github.com/mgutierrezc/otree_tools_online_exps/tree/master/no_mobile)
+1. [Quiz Dinámico de Entendimiento](https://github.com/mgutierrezc/otree_tools_online_exps/tree/master/initial_quiz)
+1. [Página Final con Información de Pagos](https://github.com/mgutierrezc/otree_tools_online_exps/blob/master/trust_production/templates/trust_production/LastPage.html)
 
 La estructura que deben tener estos experimentos debe ser la siguiente:
 
@@ -27,6 +28,8 @@ Adicionalmente, cada página del experimento debe incluir lo siguiente
 El proyecto debe incluir:
 - Un room llamado e2laup-room definido en settings
 - Un archivo de etiquetas llamado e2laup-room dentro de _rooms
+
+La sesión `Trust Game (Production)` dentro de settings es un ejemplo práctico de cómo debe verse esa versión final y `trust_production` es una aplicación que contiene todo lo mencionado arriba.
 
 ### TODO List (Para quienes usen el repo)
 1. Seleccionar una ronda al azar del exp como la ronda a pagar
