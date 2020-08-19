@@ -1,4 +1,4 @@
-# Tools for online experiments done with oTree
+# oTree Example: Trust Game
 **Programmer:** Marco Gutierrez
 
 Aquí podrás encontrar un ejemplo sobre cómo debe ser la versión final
